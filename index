@@ -1,12 +1,14 @@
+# Este programa calcula el precio final de los productos en un menú, aplicando un descuento del 15% a los productos de una categoría específica que superen un umbral de precio.
 menu = [
     ["Hamburguesa", "Comida Rápida", 18000],
-    ["Pizza", "Comida Rápida", 25000],
+    ["Perro Caliente", "Comida Rápida", 25000],
     ["Ensalada", "Saludable", 12000],
     ["Sopa", "Tradicional", 10000],
     ["Café", "Bebida", 4000],
     ["Jugo Natural", "Bebida", 6000]
 ]
 
+# Función para calcular el precio final de un producto, aplicando un descuento si cumple con las condiciones
 def calcular_precio_final(producto, categoria_objetivo, umbral):
     nombre, categoria, precio_base = producto
     if categoria == categoria_objetivo and precio_base > umbral:
@@ -15,12 +17,15 @@ def calcular_precio_final(producto, categoria_objetivo, umbral):
         precio_final = precio_base
     return precio_final
 
+# Definir la categoría objetivo y el umbral de precio para aplicar el descuento
 categoria_objetivo = "Comida Rápida"
 umbral = 20000
 
+# Imprimir el menú con los precios finales calculados
 print(f"{'Producto':<15}{'Categoría':<15}{'Precio Base':<15}{'Precio Final':<15}")
 print("-"*60)
 
+# Iterar sobre cada producto en el menú, calcular su precio final y mostrarlo
 for producto in menu:
     precio_final = calcular_precio_final(producto, categoria_objetivo, umbral)
     print(f"{producto[0]:<15}{producto[1]:<15}{producto[2]:<15}{precio_final:<15.2f}")
